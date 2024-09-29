@@ -2,168 +2,480 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bharat Law Associates</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset some default styles */
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background-color: #f4f4f4;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
     header {
-      background-color: #003366;
+      background-color: #002147;
       color: white;
       padding: 20px 0;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
     nav ul {
       list-style: none;
-      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
-    nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
+
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
-    section {
-      padding: 50px;
-      text-align: center;
+
+    nav ul li a:hover {
+      color: #ffcc00;
     }
+
+    /* Banner Section */
     .banner {
-      background-color: #336699;
+      background: url('banner-image.jpg') no-repeat center center/cover;
       color: white;
-      padding: 100px 0;
-      font-size: 24px;
+      padding: 150px 20px;
+      text-align: center;
+      position: relative;
     }
-    .practice-areas, .lawyers, .testimonials {
-      background-color: white;
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 33, 71, 0.7);
+      z-index: 1;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner h2 {
+      font-size: 2em;
       margin-bottom: 20px;
-      padding: 30px;
     }
-    .practice-areas h2, .lawyers h2, .testimonials h2 {
-      font-size: 28px;
-      color: #003366;
+
+    .banner p {
+      font-size: 1.2em;
     }
-    .practice-areas ul, .lawyers ul, .testimonials ul {
-      list-style: none;
-      padding: 0;
-    }
-    .practice-areas ul li, .lawyers ul li, .testimonials ul li {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      width: 30%;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      padding: 20px 0;
+
+    /* Practice Areas Section */
+    .practice-areas {
+      padding: 60px 20px;
+      background-color: #fff;
       text-align: center;
     }
-    .contact {
-      padding: 20px;
-      background-color: #f1f1f1;
+
+    .practice-areas h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #002147;
     }
+
+    .practice-areas ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .practice-areas ul li {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 250px;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .practice-areas ul li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Our Lawyers Section */
+    .lawyers {
+      padding: 60px 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    .lawyers h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #002147;
+    }
+
+    .lawyers ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .lawyers ul li {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .lawyers ul li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .lawyers ul li img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .lawyers ul li h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #002147;
+    }
+
+    .lawyers ul li p {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 60px 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #002147;
+    }
+
+    .testimonials .testimonial {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonials .testimonial p {
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .testimonials .testimonial p::before {
+      content: "“";
+      font-size: 3em;
+      position: absolute;
+      left: -10px;
+      top: -20px;
+      color: #ffcc00;
+    }
+
+    .testimonials .testimonial p::after {
+      content: "”";
+      font-size: 3em;
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      color: #ffcc00;
+    }
+
+    .testimonials .testimonial .client {
+      font-weight: bold;
+      color: #002147;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 60px 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #002147;
+    }
+
     .contact form {
       max-width: 600px;
       margin: 0 auto;
       text-align: left;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
     .contact form input, .contact form textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1em;
     }
+
     .contact form input[type="submit"] {
-      background-color: #003366;
+      background-color: #002147;
       color: white;
       border: none;
       cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+
+    .contact form input[type="submit"]:hover {
+      background-color: #ffcc00;
+      color: #002147;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #002147;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer .social-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+
+    footer .social-links a:hover {
+      color: #ffcc00;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .practice-areas ul, .lawyers ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .practice-areas ul li, .lawyers ul li {
+        width: 80%;
+      }
+
+      .banner {
+        padding: 80px 20px;
+      }
+
+      .banner h2 {
+        font-size: 1.5em;
+      }
+
+      .banner p {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Bharat Law Associates</h1>
-  <nav>
+  <!-- Header -->
+  <header>
+    <h1>Bharat Law Associates</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#lawyers">Our Lawyers</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner Section -->
+  <section class="banner" id="home">
+    <div class="banner-content">
+      <h2>"Achieving 80% Success in Representing Our Clients"</h2>
+      <p>We fight for your rights with expertise.</p>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="practice-areas" id="about">
+    <h2>About Us</h2>
+    <p style="max-width: 800px; margin: 20px auto; color: #555;">
+      Bharat Law Associates is a top-tier law firm committed to delivering exceptional legal services across India. Our team has a track record of achieving an 80% success rate in representing our clients. We pride ourselves on a deep understanding of both the legal landscape and the unique needs of our clients.
+    </p>
+    <p style="max-width: 800px; margin: 20px auto; color: #555;">
+      Our lawyers bring over 15 years of experience across various legal domains, representing clients in local courts, High Courts, and the Supreme Court.
+    </p>
+  </section>
+
+  <!-- Practice Areas Section -->
+  <section class="practice-areas">
+    <h2>Our Practice Areas</h2>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#lawyers">Our Lawyers</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li>General Practitioners</li>
+      <li>Corporate Lawyers</li>
+      <li>Litigation Attorneys</li>
+      <li>Real Estate Lawyers</li>
+      <li>Family Law Attorneys</li>
+      <li>Criminal Defense Attorneys</li>
+      <li>Intellectual Property Lawyers</li>
+      <li>Tax Lawyers</li>
+      <li>Environmental Lawyers</li>
+      <li>Labour and Employment Lawyers</li>
+      <li>Bankruptcy Lawyers</li>
+      <li>Insurance Lawyers</li>
+      <li>Media and Entertainment Lawyers</li>
+      <li>Construction Lawyers</li>
     </ul>
-  </nav>
-</header>
+  </section>
 
-<section class="banner" id="home">
-  <h2>"Achieving 80% Success in Representing Our Clients"</h2>
-  <p>We fight for your rights with expertise.</p>
-</section>
+  <!-- Our Lawyers Section -->
+  <section class="lawyers" id="lawyers">
+    <h2>Our Lawyers</h2>
+    <ul>
+      <li>
+        <img src="photo.jpg" alt="Advocate Arjun Sharma">
+        <h3>Advocate Arjun Sharma</h3>
+        <p>Corporate Lawyer</p>
+      </li>
+      <li>
+        <img src="photo1.jpg" alt="Advocate Neha Patel">
+        <h3>Advocate Neha Patel</h3>
+        <p>Criminal Defense Attorney</p>
+      </li>
+      <li>
+        <img src="photo2.jpg" alt="Advocate Sameer Singh">
+        <h3>Advocate Sameer Singh</h3>
+        <p>Family Law Attorney</p>
+      </li>
+      <li>
+        <img src="photo3.jpg" alt="Advocate Rina Desai">
+        <h3>Advocate Rina Desai</h3>
+        <p>Intellectual Property Lawyer</p>
+      </li>
+      <li>
+        <img src="photo4.jpg" alt="Advocate Karan Mehta">
+        <h3>Advocate Karan Mehta</h3>
+        <p>Real Estate Lawyer</p>
+      </li>
+      <li>
+        <img src="photo5.jpg" alt="Advocate Priya Kapoor">
+        <h3>Advocate Priya Kapoor</h3>
+        <p>Tax Lawyer</p>
+      </li>
+      <li>
+        <img src="photo6.jpg" alt="Advocate Vijay Rao">
+        <h3>Advocate Vijay Rao</h3>
+        <p>Environmental Lawyer</p>
+      </li>
+      <li>
+        <img src="photo7.jpg" alt="Advocate Sanya Gupta">
+        <h3>Advocate Sanya Gupta</h3>
+        <p>Labour and Employment Lawyer</p>
+      </li>
+      <li>
+        <img src="photo8.jpg" alt="Advocate Rohan Verma">
+        <h3>Advocate Rohan Verma</h3>
+        <p>Bankruptcy Lawyer</p>
+      </li>
+      <li>
+        <img src="photo9.jpg" alt="Advocate Maya Iyer">
+        <h3>Advocate Maya Iyer</h3>
+        <p>Insurance Lawyer</p>
+      </li>
+    </ul>
+  </section>
 
-<section class="practice-areas" id="practice-areas">
-  <h2>Our Practice Areas</h2>
-  <ul>
-    <li>General Practitioners</li>
-    <li>Corporate Lawyers</li>
-    <li>Litigation Attorneys</li>
-    <li>Real Estate Lawyers</li>
-    <li>Family Law Attorneys</li>
-    <li>Criminal Defense Attorneys</li>
-    <li>Intellectual Property Lawyers</li>
-    <li>Tax Lawyers</li>
-    <li>Environmental Lawyers</li>
-    <li>Labour and Employment Lawyers</li>
-    <li>Bankruptcy Lawyers</li>
-    <li>Insurance Lawyers</li>
-    <li>Media and Entertainment Lawyers</li>
-    <li>Construction Lawyers</li>
-  </ul>
-</section>
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial">
+      <p>"The team at Bharat Law Associates provided excellent legal support during my case. Their expertise was evident throughout the process."</p>
+      <p class="client">– Client 1</p>
+    </div>
+    <div class="testimonial">
+      <p>"Professional, dedicated, and incredibly experienced lawyers. Highly recommend!"</p>
+      <p class="client">– Client 2</p>
+    </div>
+    <div class="testimonial">
+      <p>"Thanks to their expertise, I was able to resolve my legal issues swiftly. Fantastic service!"</p>
+      <p class="client">– Client 3</p>
+    </div>
+  </section>
 
-<section class="lawyers" id="lawyers">
-  <h2>Our Lawyers</h2>
-  <ul>
-    <li><img src="https://via.placeholder.com/150" alt="Lawyer 1"><br>Advocate Arjun Sharma - Corporate Lawyer</li>
-    <li><img src="https://via.placeholder.com/150" alt="Lawyer 2"><br>Advocate Neha Patel - Criminal Defense Attorney</li>
-    <li><img src="https://via.placeholder.com/150" alt="Lawyer 3"><br>Advocate Sameer Singh - Family Law Attorney</li>
-    <li><img src="https://via.placeholder.com/150" alt="Lawyer 4"><br>Advocate Rina Desai - Intellectual Property Lawyer</li>
-    <li><img src="https://via.placeholder.com/150" alt="Lawyer 5"><br>Advocate Karan Mehta - Real Estate Lawyer</li>
-    <!-- Add more lawyer profiles as needed -->
-  </ul>
-</section>
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <input type="submit" value="Send Message">
+    </form>
+  </section>
 
-<section class="testimonials" id="testimonials">
-  <h2>What Our Clients Say</h2>
-  <ul>
-    <li>"The team at Bharat Law Associates provided excellent legal support during my case. Their expertise was evident throughout the process." - Client 1</li>
-    <li>"Professional, dedicated, and incredibly experienced lawyers. Highly recommend!" - Client 2</li>
-    <li>"Thanks to their expertise, I was able to resolve my legal issues swiftly. Fantastic service!" - Client 3</li>
-  </ul>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <form action="#" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <input type="submit" value="Send Message">
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2024 Bharat Law Associates. All rights reserved.</p>
-  <p>Contact us at: +91 9876543210 | Email: contact@bharatlawassociates.com</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Bharat Law Associates. All rights reserved.</p>
+    <p>Contact us at: +91 9876543210 | Email: <a href="mailto:contact@bharatlawassociates.com" style="color: #ffcc00;">contact@bharatlawassociates.com</a></p>
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn">🔗</a>
+      <a href="#" aria-label="Facebook">📘</a>
+      <a href="#" aria-label="Twitter">🐦</a>
+    </div>
+  </footer>
 
 </body>
 </html>
